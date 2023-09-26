@@ -1,6 +1,6 @@
 # CS4125
 
-**Group Mmebers**
+**Group Members**
 
 Barry Foley = 20236263
 
