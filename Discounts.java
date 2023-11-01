@@ -2,9 +2,9 @@ public class Discounts {
     
 
 
-    public double returnedDiscount(int age, int drivenYears, boolean membership, int membershipYears){
+    public double returnedDiscount(int age, int drivenYears, boolean membership, int membershipYears, int numOfCars){
 
-        return isOverAge(age) + numberOfDrivingYears(drivenYears) + membership(membership, membershipYears);
+        return isOverAge(age) + numberOfDrivingYears(drivenYears) + membership(membership, membershipYears) + carAmount(numOfCars);
 
     }
 
@@ -46,7 +46,13 @@ public class Discounts {
         return value;
     }
 
+    private double carAmount(int cars){
+        if (cars >2){
+            return 3;
+        }
 
+        return 0;
+    }
 
 
 
