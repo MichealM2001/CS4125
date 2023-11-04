@@ -12,11 +12,12 @@ public class AddCar {
         Scanner scanner = new Scanner(System.in); // Initializing a scanner to take input from the user
 
         try (PrintWriter pw = new PrintWriter(fileName)) {
-            pw.write("Year of registration" + "," + "Car model\n"); // First row of text in CSV indicating what each column means
+            pw.write("Year of registration" + "," + "Car model" + "," + "Price\n"); // First row of text in CSV indicating what each column means
             
             while (true) { //Starts loops without an actual condition. Just assumes it to be true to start loop
                 int yearOfReg; // Declaring a variable that holds car's year of registration
                 String model; // Declaring a variable that holds car's model
+                int price; //Declaring a variable that holds car's price
 
                 System.out.println("Enter year of registration."); // Message asking user to enter year of car's registration
                 yearOfReg = scanner.nextInt(); // Using input as car's year of registration
@@ -25,8 +26,13 @@ public class AddCar {
 
                 System.out.println("Enter model of car."); // Message asking the user to enter car's model
                 model = scanner.nextLine(); // Using input as car's model
+                
+                System.out.println("Enter price of car."); // Message asking the user to enter car's price
+                price = scanner.nextInt(); //Using input as car's price
+                
+                scanner.nextLine(); //Moves to next line
 
-                pw.write(yearOfReg + "," + model + "\n"); // Writing values taken from user input into CSV
+                pw.write(yearOfReg + "," + model + "," + price + "\n"); // Writing values taken from user input into CSV
 
                 System.out.println("Car details added to the CSV."); //Confirms that details have been added to CSV
                 System.out.println("Do you want to add another car? (Type 'yes' or 'no')");
