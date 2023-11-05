@@ -10,7 +10,7 @@ public class ReadCSV {
     }
 
     private static void readCSVFile(String filename){ //Creating function to read CSV file with data of cars
-        try(BufferedReader br = new BufferedReader(new FileReader(filename))){
+        try(BufferedReader br = new BufferedReader(new FileReader(filename))){ // Close after we read from CSV file. BufferedReader doesn't take in file name, so we pass FileReader which does take file name.
             String line = "";
             
             while ( (line = br.readLine()) != null ) {
@@ -18,10 +18,10 @@ public class ReadCSV {
             }            
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-            e.printStackTrace();
-        } catch (IOException e){
+            e.printStackTrace(); // Gives more information about exception if file not found
+        } catch (IOException e){ //Try statement closes buffered reader, so this is for in case file cannot be closed
             System.out.println("File could not be closed");
-            e.printStackTrace();
+            e.printStackTrace(); //More info
         }
     }
 }
