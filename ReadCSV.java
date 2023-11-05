@@ -21,7 +21,7 @@ public class ReadCSV {
             e.printStackTrace(); // Gives more information about exception if file not found
         } catch (IOException e){ //Try statement closes buffered reader, so this is for in case file cannot be closed
             System.out.println("File could not be closed");
-            e.printStackTrace(); //More info
+            e.printStackTrace(); //More information.
         }
     }
 }
