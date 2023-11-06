@@ -34,23 +34,23 @@ public class EditCSV {
                 String newIsRented; //Declaring a variable that holds car's new rental status
                 String newClassification; // Declaring a variable that holds car's classification
 
-                System.out.print("Enter year of registration."); // Message asking user to enter year of car's registration
+                System.out.println("Enter year of registration:"); // Message asking user to enter year of car's registration
                 newYearOfReg = scanner.nextInt(); // Using input as car's year of registration
 
                 scanner.nextLine(); // Moves to the next line.
 
-                System.out.print("Enter model of car."); // Message asking the user to enter car's model
+                System.out.println("Enter model of car:"); // Message asking the user to enter car's model
                 newModel = scanner.nextLine(); // Using input as car's model
 
-                System.out.print("Enter price of car"); // Message asking the user to enter car's price
+                System.out.println("Enter price of car:"); // Message asking the user to enter car's price
                 newPrice = scanner.nextInt(); //Using input as car's price
 
                 scanner.nextLine(); // Moves to the next line.
 
-                System.out.print("Is car rented?"); // Message asking the user to enter car's rental status
+                System.out.println("Is car rented?(yes or no):"); // Message asking the user to enter car's rental status
                 newIsRented = scanner.nextLine(); // Using input as car's rental status
 
-                System.out.print("Enter classification of car."); // Message asking the user to enter car's classification
+                System.out.println("Enter classification of car:"); // Message asking the user to enter car's classification
                 newClassification = scanner.nextLine(); // Using input as car's classification
 
                 // Add new details to line.
