@@ -2,14 +2,14 @@ public class Car {
     private int yearOfReg;
     private String model;
     private int price;
-    private String isRented;
+    private CarContext carContext;
     private String classification;
 
-    public Car(int yearOfReg, String model, int price, String isRented, String classification) {
+    public Car(int yearOfReg, String model, int price, String classification) {
         this.yearOfReg = yearOfReg;
         this.model = model;
         this.price = price;
-        this.isRented = isRented;
+        this.carContext = new CarContext();
         this.classification = classification;
     }
 
@@ -27,8 +27,12 @@ public class Car {
         return price;
     }
 
-    public String getIsRented() {
-        return isRented;
+    public void rent(){
+        carContext.rentCar();
+    }
+
+    public void returnCar(){
+        carContext.returnCar();
     }
 
     public String getClassification() {
@@ -48,9 +52,7 @@ public class Car {
         this.price = price;
     }
 
-    public void setIsRented(String isRented) {
-        this.isRented = isRented;
-    }
+  
 
     public void setClassification(String classification) {
         this.classification = classification;
