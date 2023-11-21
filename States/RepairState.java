@@ -1,5 +1,7 @@
 package States;
-public class RepairState {
+public class RepairState implements CarState{
+    
+
     @Override
     public void rentCar(CarContext carContext){
 
