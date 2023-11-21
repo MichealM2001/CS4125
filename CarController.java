@@ -43,7 +43,6 @@ public class CarController {
                 car.getYearOfReg() + ","
                 + car.getModel() + ","
                 + car.getPrice() + ","
-                + car.getIsRented() + ","
                 + car.getClassification() + "\n"
             );
         } catch (IOException e) {

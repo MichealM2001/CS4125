@@ -33,7 +33,7 @@ public class CarView {
         System.out.println("Enter classification of car:");
         String classification = scanner.nextLine();
 
-        return new Car(yearOfReg, model, price, isRented, classification);
+        return new Car(yearOfReg, model, price, classification);
     }
 
     public String getCarModelToRemove() {

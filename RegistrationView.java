@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class RegistrationView {
 
-    public static String getUserInput() {
-        return new Scanner(System.in).nextLine();
-    }
+    // public static String getUserInput() {
+    //     return new Scanner(System.in).nextLine();
+    // }
 
     public static void displayMessage(String message) {
         System.out.print(message);

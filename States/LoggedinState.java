@@ -1,3 +1,5 @@
+package States;
+
 public class LoggedinState implements UserState{
     @Override
     public void logOut(UserContext usercontext){
@@ -5,7 +7,7 @@ public class LoggedinState implements UserState{
     }
 
     @Override
-    public void logIn(Usercontext usercontext){
+    public void logIn(UserContext usercontext){
 
     }
 }
