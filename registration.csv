@@ -1,0 +1,22 @@
+Username,Password,hasDriverLicense,LicenseDuration,PenaltyPoints,Gender
+Mitch,password,yes,yes,8,male
+Rio,password,no,no,0,female
+Back,password,yes,yes,6,male
+Bazza,password,no,no,0,male
+Oisin,password,yes,yes,5,male
+Mitchhh,password,yes,yes,2,male
+Mitchhhh,password,yes,no,3,female
+MeSmall,password,yes,no,6,male
+MeLala,password,yes,no,0,male
+Mahir,password,yes,yes,0,male
+Mia,password,yes,yes,8,male
+PaulBarrett,password,yes,yes,0,male
+MahirJha,password,yes,yes,0,male
+JhaMahir,password,yes,yes,0,male
+Kealan,password,yes,yes,1,male
+Trey,password,no,no,0,male
+Niall,password,no,no,0,female
+Kiara,password,yes,yes,9,male
+Micheal Mulcahy,password,yes,yes,1,male
+Helo,password,no,no,0,male
+jj,password,yes,yes,3,male
