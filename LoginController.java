@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class LoginController {
 
@@ -12,7 +15,7 @@ public class LoginController {
 
         if (userFound) {
             LoginView.displayMessage("Login successful!");
-            RentalManager.rentCars(username); // Call rentCars method from RentalController
+            RentalController.rentCars(username); 
         } else {
             LoginView.displayMessage("Invalid username or password. Please try again.");
         }
