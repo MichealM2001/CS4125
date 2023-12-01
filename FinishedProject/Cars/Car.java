@@ -16,7 +16,6 @@ public class Car {
         this.classification = classification;
     }
 
-    // Getter and setter methods for the car details go here
     // Getter methods
     public int getYearOfReg() {
         return yearOfReg;
