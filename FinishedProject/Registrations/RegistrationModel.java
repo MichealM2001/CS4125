@@ -1,3 +1,5 @@
+package Registrations;
+
 public class RegistrationModel {
     private String username;
     private String password;

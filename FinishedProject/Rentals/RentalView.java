@@ -1,3 +1,5 @@
+package Rentals;
+
 import java.util.List;
 import java.io.FileWriter;
 import java.io.IOException;

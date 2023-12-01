@@ -1,3 +1,4 @@
+package Rentals;
 public class RentalModel {
     private String carName;
     private double pricePerDay;

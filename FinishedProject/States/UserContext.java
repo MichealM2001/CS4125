@@ -21,4 +21,13 @@ public class UserContext {
     public UserState getCurrentState(){
         return state;
     }
+
+    public void setUsername(String username){
+        state.setUsername(username);
+    }
+
+    public String getUsername(){
+        return state.getUsername();
+    }
+
 }

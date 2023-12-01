@@ -1,7 +1,7 @@
 package Login;
 import javax.swing.*;
 
-import Car.CarRentalGUI;
+import Cars.CarRentalGUI;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

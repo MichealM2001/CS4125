@@ -1,3 +1,4 @@
+package DataInputs;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
