@@ -59,8 +59,9 @@ RentalView.displayRentalDetails(selectedCar, rentalDays, totalCost);
                     String carName = carData[0];
                     double price = Double.parseDouble(carData[1]);
                     int availability = Integer.parseInt(carData[2]);
+                    int carYear = Integer.parseInt(carData[3]);
 
-                    cars.add(new RentalModel(carName, price, availability));
+                    cars.add(new RentalModel(carName, price, availability, carYear));
                 }
             }
         } catch (IOException e) {

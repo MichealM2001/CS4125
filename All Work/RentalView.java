@@ -9,7 +9,7 @@ public class RentalView {
     public static void displayAvailableCars(List<RentalModel> cars) {
         System.out.println("Available cars for rent:");
         for (RentalModel car : cars) {
-            System.out.println(car.getCarName() + " - $" + car.getPricePerDay() +
+            System.out.println(car.getCarName() + "," + car.getCarYear() + " - $" + car.getPricePerDay() +
                     " per day, Availability: " + car.getAvailability());
         }
     }
@@ -28,11 +28,11 @@ public class RentalView {
     public static void saveCarsToCsv(List<RentalModel> cars) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(CAR_CSV_FILE_PATH))) {
             // Write header
-            writer.println("CarName,pricePerDay,availability");
+            writer.println("CarName,pricePerDay,availability,carYear");
 
             // Write data
             for (RentalModel car : cars) {
-                writer.println(car.getCarName() + "," + car.getPricePerDay() + "," + car.getAvailability());
+                writer.println(car.getCarName() + "," + car.getPricePerDay() + "," + car.getAvailability() + "," + car.getCarYear());
             }
         } catch (IOException e) {
             System.err.println("Error writing to CSV file: " + e.getMessage());

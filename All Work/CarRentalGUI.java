@@ -38,42 +38,55 @@ public class CarRentalGUI extends JFrame {
                 String selectedCarString = carList.getSelectedValue();
 
                 if (selectedCarString != null) {
-                    String[] selectedCarParts = selectedCarString.split(" - ");
-                    String selectedCarName = selectedCarParts[0];
+                    int index = selectedCarString.indexOf(" - ");
+                    if (index != -1) {
+                        String selectedCarName = selectedCarString.substring(0, index);
+                        // rest of the code remains the same
+                        String daysInput = JOptionPane.showInputDialog(CarRentalGUI.this, "Enter number of days to rent:");
 
-                    String daysInput = JOptionPane.showInputDialog(CarRentalGUI.this, "Enter number of days to rent:");
+                        try {
+                            int rentalDays = Integer.parseInt(daysInput);
+                            List<RentalModel> updatedCars = RentalController.loadCarsFromCsv();
+                            RentalModel selectedCarObject = RentalController.findCarByName(updatedCars, selectedCarName);
 
-                    try {
-                        int rentalDays = Integer.parseInt(daysInput);
-                        List<RentalModel> updatedCars = RentalController.loadCarsFromCsv();
-                        RentalModel selectedCarObject = RentalController.findCarByName(updatedCars, selectedCarName);
+                            if (selectedCarObject != null) {
+                                double totalCost = RentalController.calculateRentalCost(
+                                        selectedCarObject, rentalDays, username);
 
-                        if (selectedCarObject != null) {
-                            double totalCost = RentalController.calculateRentalCost(
-                                    selectedCarObject, rentalDays, username);
+                                // Decrease availability
+                                selectedCarObject.decreaseAvailability();
 
-                            // Decrease availability
-                            selectedCarObject.decreaseAvailability();
+                                // Save cars to CSV
+                                RentalView.saveCarsToCsv(updatedCars);
 
-                            // Save cars to CSV
-                            RentalView.saveCarsToCsv(updatedCars);
+                                // Display updated availability in GUI
+                                RentalView.displayUpdatedAvailability(selectedCarObject);
 
-                            // Display updated availability in GUI
-                            RentalView.displayUpdatedAvailability(selectedCarObject);
-
-                            // Display rental summary in GUI
-                            String summary = "Car '" + selectedCarName + "' rented for " + rentalDays + " days.\n";
-                            summary += "Total Cost: $" + totalCost;
-                            JOptionPane.showMessageDialog(CarRentalGUI.this, summary);
-                        } else {
-                            JOptionPane.showMessageDialog(CarRentalGUI.this, "Invalid selection. Please try again.");
+                                // Display rental summary in GUI
+                                String summary = "Car '" + selectedCarName + "' rented for " + rentalDays + " days.\n";
+                                summary += "Total Cost: $" + totalCost;
+                                JOptionPane.showMessageDialog(CarRentalGUI.this, summary);
+                            } else {
+                                JOptionPane.showMessageDialog(CarRentalGUI.this, "Invalid selection. Please try again.");
+                            }
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(CarRentalGUI.this, "Invalid input. Please enter a valid number of days.");
                         }
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(CarRentalGUI.this, "Invalid input. Please enter a valid number of days.");
+                    } else {
+                        JOptionPane.showMessageDialog(CarRentalGUI.this, "Invalid selection format. Please try again.");
                     }
                 } else {
                     JOptionPane.showMessageDialog(CarRentalGUI.this, "Please select a car to rent.");
                 }
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new CarRentalGUI("JohnDoe").setVisible(true);
             }
         });
     }
