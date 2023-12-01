@@ -16,13 +16,13 @@ public class CarRentalGUI extends JFrame {
         this.username = username;
 
         // Components for car rental frame
-        List<CarModel> availableCars = RentalController.loadCarsFromCsv();
+        List<RentalModel> availableCars = RentalController.loadCarsFromCsv();
         DefaultListModel<String> carListModel = new DefaultListModel<>();
         JList<String> carList = new JList<>(carListModel);
         JButton rentButton = new JButton("Rent Selected Car");
 
         // Populate the car list with details (name, price, availability)
-        for (CarModel car : availableCars) {
+        for (RentalModel car : availableCars) {
             carListModel.addElement(car.getCarName() + " - Price per day: $" + car.getPricePerDay() + " Availability: " + car.getAvailability());
         }
 
@@ -45,8 +45,8 @@ public class CarRentalGUI extends JFrame {
 
                     try {
                         int rentalDays = Integer.parseInt(daysInput);
-                        List<CarModel> updatedCars = RentalController.loadCarsFromCsv();
-                        CarModel selectedCarObject = RentalController.findCarByName(updatedCars, selectedCarName);
+                        List<RentalModel> updatedCars = RentalController.loadCarsFromCsv();
+                        RentalModel selectedCarObject = RentalController.findCarByName(updatedCars, selectedCarName);
 
                         if (selectedCarObject != null) {
                             double totalCost = RentalController.calculateRentalCost(
@@ -56,10 +56,10 @@ public class CarRentalGUI extends JFrame {
                             selectedCarObject.decreaseAvailability();
 
                             // Save cars to CSV
-                            CarView.saveCarsToCsv(updatedCars);
+                            RentalView.saveCarsToCsv(updatedCars);
 
                             // Display updated availability in GUI
-                            CarView.displayUpdatedAvailability(selectedCarObject);
+                            RentalView.displayUpdatedAvailability(selectedCarObject);
 
                             // Display rental summary in GUI
                             String summary = "Car '" + selectedCarName + "' rented for " + rentalDays + " days.\n";
