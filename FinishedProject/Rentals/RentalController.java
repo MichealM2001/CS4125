@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RentalController {
-    private static final String CAR_CSV_FILE_PATH = "cars.csv";
+    private static final String CAR_CSV_FILE_PATH = "FinishedProject\\CSVs\\cars.csv";
 
     public static void rentCars(String username) {
         Scanner scanner = new Scanner(System.in);

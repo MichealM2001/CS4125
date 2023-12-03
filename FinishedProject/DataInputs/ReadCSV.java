@@ -29,7 +29,7 @@ public class ReadCSV {
     }
 
 
-     private static List<String[]> CSVToData(String filename){ //Creating function to read CSV file with data of cars
+     public static List<String[]> CSVToData(String filename){ //Creating function to read CSV file with data of cars
         List<String[]> data = new ArrayList<>();
         
         try(BufferedReader br = new BufferedReader(new FileReader(filename))){ // Close after we read from CSV file. BufferedReader doesn't take in file name, so we pass FileReader which does take file name.

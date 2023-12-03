@@ -15,7 +15,7 @@ public class LoginView {
     }
 
     public static boolean authenticateUser(LoginModel model) {
-        try (BufferedReader br = new BufferedReader(new FileReader("registration.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("FinishedProject\\CSVs\\registration.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] userData = line.split(",");

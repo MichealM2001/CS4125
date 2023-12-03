@@ -1,9 +1,20 @@
 package Main;
-public class mainController {
-    
-    public static Boolean isLoggedIn(){
 
+public class MainController {
 
-        return false;
+     private MainModel mainModel;
+
+    public MainController(MainModel mainModel) {
+        this.mainModel = mainModel;
+    }
+
+    public boolean checkLoginStatus() {
+        return mainModel.isLoggedIn();
+
     }
 }
+
+
+
+   
+
