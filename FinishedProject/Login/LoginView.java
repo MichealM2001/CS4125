@@ -19,7 +19,7 @@ public class LoginView {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] userData = line.split(",");
-                if (userData.length >= 2 && userData[0].equals(model.getUsername()) && userData[1].equals(model.getPassword())) {
+                if (userData.length >= 2 && userData[0].toLowerCase().equals(model.getUsername()) && userData[1].equals(model.getPassword())) {
                     return true;
                 }
             }

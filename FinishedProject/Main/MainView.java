@@ -8,8 +8,6 @@ public class MainView {
         MainModel mainModel = new MainModel();
         MainController mainController = new MainController(mainModel);
 
-        
-
         if(mainController.checkLoginStatus()){
             new HomeView().setVisible();
         }else{

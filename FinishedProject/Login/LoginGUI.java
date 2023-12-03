@@ -2,6 +2,7 @@ package Login;
 import javax.swing.*;
 
 import Cars.CarRentalGUI;
+import Home.HomeView;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -36,7 +37,7 @@ public class LoginGUI extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
+                String username = usernameField.getText().toLowerCase();
                 String password = new String(passwordField.getPassword());
 
                 // Call your login logic
@@ -44,10 +45,9 @@ public class LoginGUI extends JFrame {
                 boolean userFound = LoginView.authenticateUser(model);
 
                 if (userFound) {
-                    JOptionPane.showMessageDialog(LoginGUI.this, "Login successful!");
 
-                    // Open the car rental frame
-                    new CarRentalGUI(username).setVisible(true);
+                    // Open the home frame
+                    new HomeView().setVisible();;
 
                     // Close the login frame
                     dispose();
