@@ -1,6 +1,5 @@
 package Main;
 
-import Home.HomeView;
 import Login.LoginGUI;
 
 public class MainView {

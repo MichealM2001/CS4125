@@ -49,12 +49,12 @@ public class LoggedinState implements UserState{
     }
 
     @Override
-    public void addItem(String item) {
+    public void addOrder(String item) {
         orders.add(item);
     }
 
     @Override
-    public void removeItem(String item) {
+    public void removeOrder(String item) {
         orders.remove(item);
     }
 

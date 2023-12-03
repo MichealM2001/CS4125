@@ -10,6 +10,6 @@ public interface UserState{
     void setEmail(String email);
     String getEmail();
     List<String> getOrders();
-    void addItem(String item);
-    void removeItem(String item);
+    void addOrder(String item);
+    void removeOrder(String item);
 }

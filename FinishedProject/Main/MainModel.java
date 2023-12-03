@@ -17,6 +17,7 @@ public class MainModel {
         String[] currentUser = data.get(0);
         if(currentUser[0].equals("true")){
             user.logIn();
+            user.setUsername(currentUser[1]);
             return true;
         }
         return false;

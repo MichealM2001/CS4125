@@ -1,12 +1,21 @@
 package States;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import DataInputs.ReadCSV;
+
 public class UserContext {
     private UserState state;
+    private List<String[]> authFile = new ArrayList<>();
 
     public UserContext(){
         state = new LoggedinState();
     }
 
     public void logOut(){
+        authFile.add(new String[]{"false"});
+        ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile);
         state.logOut(this);
     }
 
@@ -38,7 +47,7 @@ public class UserContext {
         return state.getEmail();
     }
 
-    public void addItem(String item){
-        state.addItem(item);
+    public void addOrder(String item){
+        state.addOrder(item);
     }
 }

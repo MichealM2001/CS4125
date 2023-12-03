@@ -1,10 +1,7 @@
 package Main;
 
-import Home.HomeController;
 import Home.HomeView;
 import States.UserContext;
-import User.UserController;
-import User.UserView;
 
 public class MainController {
 
@@ -21,7 +18,7 @@ public class MainController {
 
     public void goToHome(){
         UserContext user = new UserContext(); 
-        HomeView homeView = new HomeView();
+        HomeView homeView = new HomeView(user);
         homeView.setVisible(true);
     }
 }

@@ -21,6 +21,7 @@ public class LoggedoutState implements UserState{
 
     @Override
     public void setUsername(String username){
+        
     }
 
     @Override
@@ -40,12 +41,12 @@ public class LoggedoutState implements UserState{
     }
 
     @Override
-    public void addItem(String item) {
+    public void addOrder(String item) {
        
     }
 
     @Override
-    public void removeItem(String item) {
+    public void removeOrder(String item) {
         
     }
 }

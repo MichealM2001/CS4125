@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.BufferedReader;
 
 public class ReadCSV {
@@ -48,5 +49,19 @@ public class ReadCSV {
         }
 
         return data;
+    }
+
+
+    public static void writeToCSVFile(String fileName, List<String[]> rows) {
+       
+        try (FileWriter writer = new FileWriter(fileName, false)){
+
+            for(String[] row : rows){
+
+                writer.write(String.join(",", row )+ "\n");
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
