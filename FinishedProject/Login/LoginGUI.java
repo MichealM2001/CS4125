@@ -16,6 +16,7 @@ public class LoginGUI extends JFrame {
     public LoginGUI() {
         super("Car Rental System - Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocation(400, 200);
         setSize(400, 200);
 
         // Components
@@ -47,7 +48,7 @@ public class LoginGUI extends JFrame {
                 if (userFound) {
 
                     // Open the home frame
-                    new HomeView().setVisible();;
+                    // new HomeView().setVisible();
 
                     // Close the login frame
                     dispose();

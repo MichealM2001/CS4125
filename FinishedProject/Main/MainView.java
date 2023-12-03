@@ -9,7 +9,7 @@ public class MainView {
         MainController mainController = new MainController(mainModel);
 
         if(mainController.checkLoginStatus()){
-            new HomeView().setVisible();
+            mainController.goToHome();
         }else{
             new LoginGUI().setVisible(true);
         }

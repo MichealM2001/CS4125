@@ -30,4 +30,15 @@ public class UserContext {
         return state.getUsername();
     }
 
+    public void setEmail(String email){
+        state.setEmail(email);
+    }
+
+    public String getEmail(){
+        return state.getEmail();
+    }
+
+    public void addItem(String item){
+        state.addItem(item);
+    }
 }
