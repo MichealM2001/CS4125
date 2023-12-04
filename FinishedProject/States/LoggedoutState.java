@@ -23,17 +23,6 @@ public class LoggedoutState implements UserState{
     public void setUsername(String username){
         
     }
-
-    @Override
-    public void setEmail(String email) {
-        
-    }
-
-    @Override
-    public String getEmail() {
-        return null;
-    }
-
     @Override
     public List<String> getOrders() {
         
@@ -57,6 +46,37 @@ public class LoggedoutState implements UserState{
 
     @Override
     public String getID() {
+        return null; 
+    }
+
+    @Override
+    public String getLicense() {
+        return null; 
+    }
+
+    @Override
+    public void setLicense(String license) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setLicense'");
+    }
+
+    @Override
+    public int getPenaltyPoints() {
+        return 0; 
+    }
+
+    @Override
+    public void setPenaltyPoints(int points) {
+        
+    }
+
+    @Override
+    public void setGender(String gender) {
+        
+    }
+
+    @Override
+    public String getGender() {
         return null; 
     }
 }

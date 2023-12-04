@@ -16,8 +16,6 @@ public class MainModel {
         data = ReadCSV.CSVToData("FinishedProject\\CSVs\\authorised.csv");
         String[] currentUser = data.get(0);
         if(currentUser[0].equals("true")){
-            // user.logIn(false);
-            // System.out.println(user.getUsername().toString());
             return true;
         }
         return false;

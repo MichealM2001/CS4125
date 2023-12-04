@@ -21,14 +21,15 @@ public class RentalController {
         if (!selectedCar.equals("exit")) {
             RentalModel selectedCarObject = findCarByName(cars, selectedCar);
 
-            if (selectedCarObject != null && selectedCarObject.getAvailability() > 0) {
+            if (selectedCarObject != null && selectedCarObject.getAvailability().equals(true)) {
                 System.out.print("Enter the number of days you want to rent the car: ");
                 int rentalDays = scanner.nextInt();
                 scanner.nextLine();
                 double totalCost = calculateRentalCost(selectedCarObject, rentalDays, username);
 
 // Decrease the availability by 1
-selectedCarObject.decreaseAvailability();
+// selectedCarObject.decreaseAvailability();
+selectedCarObject.changeAvailability(false);
 
 RentalView.saveCarsToCsv(cars);
 
@@ -59,8 +60,7 @@ RentalView.displayRentalDetails(selectedCar, rentalDays, totalCost);
                 if (carData.length >= 3) {
                     String carName = carData[0];
                     double price = Double.parseDouble(carData[1]);
-                    int availability = Integer.parseInt(carData[2]);
-
+                    Boolean availability = Boolean.parseBoolean(carData[2]);
                     cars.add(new RentalModel(carName, price, availability));
                 }
             }

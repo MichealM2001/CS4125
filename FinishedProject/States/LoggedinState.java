@@ -8,6 +8,9 @@ public class LoggedinState implements UserState{
     private String email;
     private List<String> orders;
     private String id;
+    private int points;
+    private String gender;
+    private String license;
 
     public LoggedinState(){
         orders = new ArrayList<>();
@@ -35,16 +38,6 @@ public class LoggedinState implements UserState{
     }
 
     @Override
-    public String getEmail(){
-        return email;
-    }
-
-    @Override
-    public void setEmail(String email){
-        this.email = email;
-    }
-
-    @Override
     public List<String> getOrders() {
         return orders;
     }
@@ -67,6 +60,36 @@ public class LoggedinState implements UserState{
     @Override
     public String getID() {
         return id;
+    }
+
+    @Override
+    public String getLicense() {
+        return license;
+    }
+
+    @Override
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    @Override
+    public int getPenaltyPoints() {
+        return points;
+    }
+
+    @Override
+    public void setPenaltyPoints(int points) {
+        this.points = points;
+    }
+
+    @Override
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    @Override
+    public String getGender() {
+        return gender;
     }
 
 

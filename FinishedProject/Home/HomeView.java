@@ -11,7 +11,7 @@ public class HomeView extends JFrame{
     private HomeController controller;
     private JButton userButton;
     private JPanel leftPanel;
-    private JTextArea textArea;
+    private JLabel nameLabel;
 
 
     public HomeView(UserContext user){
@@ -82,11 +82,15 @@ public class HomeView extends JFrame{
         setJMenuBar(topBar);
 
         leftPanel = new JPanel();
-        textArea = new JTextArea(5, 20);
-        textArea.append(user.getUsername());
-        textArea.setEditable(false);
-        leftPanel.add(textArea);
-
+        leftPanel.setSize(500, 600);
+        nameLabel = new JLabel();
+        nameLabel.add(Box.createRigidArea(new Dimension(0,500)));
+        nameLabel.setText("Welcome");
+        leftPanel.add(nameLabel);
+        
+        leftPanel.add(nameLabel);
+        add(leftPanel);
+        
         
     }
 }

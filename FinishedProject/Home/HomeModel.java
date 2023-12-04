@@ -25,7 +25,7 @@ public class HomeModel {
     }
 
     public void addUserContext(UserContext user){
-        user.logIn(false);
+        user.logIn();
     }
 
     

@@ -113,7 +113,7 @@ public class RegistrationGUI extends JFrame {
     }
 
     private boolean isRegistrationDataValid(String username, String password, int penaltyPoints, String hasDriverLicense) {
-        // Add your validation logic here
+        
         return !username.isEmpty() && password.length() >= 8 && penaltyPoints >= 0 && (!hasDriverLicense.isEmpty() || (hasDriverLicense.isEmpty() && noDriverLicenseCheckBox.isSelected()));
     }
 

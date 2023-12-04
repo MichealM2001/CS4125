@@ -57,7 +57,8 @@ public class CarRentalGUI extends JFrame {
                                     selectedCarObject, rentalDays, username);
 
                             // Decrease availability
-                            selectedCarObject.decreaseAvailability();
+                            // selectedCarObject.decreaseAvailability();
+                            selectedCarObject.changeAvailability(false);
 
                             // Save cars to CSV
                             RentalView.saveCarsToCsv(updatedCars);
