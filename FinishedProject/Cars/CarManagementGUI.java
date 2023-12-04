@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CarManagementGUI {
+public class CarManagementGUI extends JFrame {
     private static final String fileName = "AddCar.csv";
 
     public static void main(String[] args) {
@@ -128,3 +128,4 @@ public class CarManagementGUI {
         }
     }
 }
+
