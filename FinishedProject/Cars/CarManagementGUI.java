@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CarManagementGUI extends JFrame {
+    private JButton carManagementButton;
     private static final String fileName = "AddCar.csv";
 
     public static void main(String[] args) {
@@ -26,8 +27,8 @@ public class CarManagementGUI extends JFrame {
             JPanel buttonPanel = new JPanel();
             buttonPanel.setLayout(new GridLayout(1, 3));
 
-            JButton addButton = new JButton("Add Car");
-            addButton.addActionListener(new ActionListener() {
+            JButton carManagementButton = new JButton("Add Car");
+            carManagementButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     addCar();
@@ -52,7 +53,7 @@ public class CarManagementGUI extends JFrame {
                 }
             });
 
-            buttonPanel.add(addButton);
+            buttonPanel.add(carManagementButton);
             buttonPanel.add(removeButton);
             buttonPanel.add(exitButton);
 

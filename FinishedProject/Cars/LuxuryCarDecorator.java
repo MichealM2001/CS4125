@@ -11,7 +11,7 @@ public class LuxuryCarDecorator extends CarDecorator {
     // Overriding the getPrice method to include the cost of luxury features
     @Override
     public int getPrice() {
-        // Assuming a fixed additional cost for luxury features. 
+        // Fixed additional cost for luxury features. 
         int luxuryFeatureCost = 5000;
 
         // Return the original price plus the additional luxury feature cost

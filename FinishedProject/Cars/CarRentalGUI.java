@@ -9,17 +9,18 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import Rentals.*;
+import States.UserContext;
 
 
 public class CarRentalGUI extends JFrame {
-
+    private JButton carRentalButton;
     private String username;
 
-    public CarRentalGUI(String username) {
-        super("Car Rental - Welcome");
+        public CarRentalGUI() {
+        super("Car Rental - Welcome, "); // Accessing username from UserContext
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocation(400, 200);
-        setSize(1000, 600);
+        setSize(800, 400);
 
         this.username = username;
 
@@ -40,7 +41,7 @@ public class CarRentalGUI extends JFrame {
         add(rentButton, BorderLayout.SOUTH);
 
         // Event handling for renting button
-        rentButton.addActionListener(new ActionListener() {
+        carRentalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedCarString = carList.getSelectedValue();
