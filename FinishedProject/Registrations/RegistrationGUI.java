@@ -1,8 +1,13 @@
 package Registrations;
 import javax.swing.*;
+
+import DataInputs.ReadCSV;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class RegistrationGUI extends JFrame {
@@ -113,7 +118,14 @@ public class RegistrationGUI extends JFrame {
     }
 
     private boolean isUsernameAvailable(String username) {
-        // Add logic
+        
+        List<String[]> data = new ArrayList<>();
+        data = ReadCSV.CSVToData("FinishedProject\\CSVs\\registration.csv");
+        for (String[] strings : data) {
+            if(strings[0].equals(username)){
+                return false;
+            }
+        }
         return true; 
     }
 
