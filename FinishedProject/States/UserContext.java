@@ -20,19 +20,43 @@ public class UserContext {
         state.logOut(this);
     }
 
-    public void logIn(Boolean loggedOut){
-        if(loggedOut){
+    public void logIn(){
+        List<String[]> authData, userData = new ArrayList<>();
+        authData = ReadCSV.CSVToData("FinishedProject\\CSVs\\authorised.csv");
+        if(authData.size() == 2){
             state.logIn(this);
-            System.out.println(state);
+            String userId = authData.get(0)[1];
+            userData = ReadCSV.CSVToData("FinishedProject\\CSVs\\registration.csv");
+            for (String[] strings : userData) {
+                if(strings[6].equals(userId)){
+                    state.setUsername(strings[0]);
+                    state.setGender(strings[5]);
+                    state.setLicense(strings[3]);
+                    state.setPenaltyPoints(Integer.parseInt(strings[4]));
+                    state.addID(userId);
+
+                }
+            }
         }
         else{
-            // ReadCSV.
+            String username = state.getUsername();
+            userData = ReadCSV.CSVToData("FinishedProject\\CSVs\\registration.csv");
+            for (String[] strings : userData) {
+                if(strings[0].toLowerCase().equals(username)){
+                    state.setGender(strings[5]);
+                    state.setLicense(strings[3]);
+                    state.setPenaltyPoints(Integer.parseInt(strings[4]));
+                    state.addID(strings[6]);
+
+                }
+            }
         } 
-        
         authFile.clear();
-        authFile.add(new String[]{"true"});
+        authFile.add(new String[]{"true", state.getID().toString()});
         ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile, false);      
     }
+
+
     public void setState(UserState state){
         this.state = state;
     }
@@ -49,14 +73,6 @@ public class UserContext {
         return state.getUsername();
     }
 
-    public void setEmail(String email){
-        state.setEmail(email);
-    }
-
-    public String getEmail(){
-        return state.getEmail();
-    }
-
     public void addOrder(String item){
         state.addOrder(item);
     }
@@ -67,5 +83,29 @@ public class UserContext {
 
     public String getID(){
         return state.getID();
+    }
+
+    public String getLicense() {
+        return state.getLicense();
+    }
+
+    public void setLicense(String hasLicense) {
+       state.setLicense(hasLicense); 
+    }
+
+    public int getPenaltyPoints() {
+        return state.getPenaltyPoints();
+    }
+
+    public void setPenaltyPoints(int points) {
+        state.setPenaltyPoints(points);
+    }
+
+    public void setGender(String gender) {
+        state.setGender(gender);    
+    }
+
+    public String getGender() {
+        return state.getGender();
     }
 }

@@ -7,11 +7,16 @@ public interface UserState{
     void logOut(UserContext usercontext);
     void logIn(UserContext usercontext);
     void setUsername(String username);
-    void setEmail(String email);
-    String getEmail();
     List<String> getOrders();
     void addOrder(String item);
     void removeOrder(String item);
     void addID(String id);
     String getID();
+    String getLicense();
+    void setLicense(String license);
+    int getPenaltyPoints();
+    void setPenaltyPoints(int points);
+    void setGender(String gender);
+    String getGender();
+
 }
