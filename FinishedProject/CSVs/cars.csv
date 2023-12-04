@@ -1,21 +1,21 @@
 CarName,pricePerDay,availability,carYear,id
-Toyota Camry,50.0,true,2020,2ef8a1c761b94de4a74d16b13d5b56af
-Honda Civic,45.0,true,2019,512a632e7c11471294c9f34fb9b4fd54
-Ford Mustang,80.0,true,2022,8c72f5d6876f4cb8931c1fd03ec521b2
-Nissan Altima,55.0,true,2021,22b53b32c397466792abe358d2d38336
-Chevrolet Malibu,60.0,true,2022,4a8216a13f384a2fae6a5ec7d146af65
-Tesla Model 3,120.0,true,2023,97c0f0f22a594cf0a97b17772e9eb66e
-BMW 3 Series,90.0,true,2021,606f27ae40fc41f2b4ae0ee195019a43
-Mercedes-Benz C-Class,95.0,true,2023,9ec25180d5874e6980488c74a60e67d5
-Audi A4,85.0,true,2022,d8a119b34d564c3e84547c3b5d1be63d
-Hyundai Sonata,48.0,true,2020,98ac3458e18b40978d97fc0c4d67ef13
-Volkswagen Passat,55.0,true,2021,6c08e56a1a0346b99af0d2a8cd64007e
-Lexus ES,100.0,true,2022,135e5f90e04a4df8a84fe813aa3f28b8
-Ford Fusion,52.0,true,2020,eb6744567d074b1f8ff4c146736f02d0
-Chevrolet Impala,58.0,true,2021,31da29d8b1ef4b8a8c4a13332d82ef46
-Honda Accord,56.0,true,2022,50b418a6ef3b49d0a501da83ee9c9b2b
-Kia Optima,49.0,true,2021,efbdf9c5f2b845f2ad0c5802c5d45c5f
-Mazda6,53.0,true,2020,ac6a9c9e42e14119bf37d7a536fbb3e4
-Subaru Legacy,54.0,true,2022,1d9a8014ab5141bea3a969c90a228f4b
-Acura TLX,75.0,true,2021,68e6c354759b4a8ab9e71c12a18b33b8
-Buick Regal,65.0,true,2023,7e7573b5b14943c68c12c79c56ff967e
+Toyota Camry,50.0,true,2020,2ef8a1c
+Honda Civic,45.0,true,2019,512a632
+Ford Mustang,80.0,true,2022,8c72f5d
+Nissan Altima,55.0,true,2021,22b53b3
+Chevrolet Malibu,60.0,true,2022,4a8216a
+Tesla Model 3,120.0,true,2023,97c0f0f
+BMW 3 Series,90.0,true,2021,606f27a
+Mercedes-Benz C-Class,95.0,true,2023,9ec2518
+Audi A4,85.0,true,2022,d8a119b
+Hyundai Sonata,48.0,true,2020,98ac345
+Volkswagen Passat,55.0,true,2021,6c08e56
+Lexus ES,100.0,true,2022,135e5f9
+Ford Fusion,52.0,true,2020,eb67445
+Chevrolet Impala,58.0,true,2021,31da29d
+Honda Accord,56.0,true,2022,50b418a
+Kia Optima,49.0,true,2021,efbdf9c
+Mazda6,53.0,true,2020,ac6a9c9
+Subaru Legacy,54.0,false,2022,1d9a801
+Acura TLX,75.0,false,2021,68e6c35
+Buick Regal,65.0,false,2023,7e7573b
