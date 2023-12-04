@@ -1,9 +1,24 @@
 package Main;
-public class mainController {
-    
-    public static Boolean isLoggedIn(){
 
+import Home.HomeView;
+import States.UserContext;
 
-        return false;
+public class MainController {
+
+    private MainModel mainModel;
+
+    public MainController(MainModel mainModel) {
+        this.mainModel = mainModel;
+    }
+
+    public boolean checkLoginStatus() {
+        return mainModel.isLoggedIn();
+
+    }
+
+    public void goToHome(){
+        UserContext user = new UserContext(); 
+        HomeView homeView = new HomeView(user);
+        homeView.setVisible(true);
     }
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.BufferedReader;
 
 public class ReadCSV {
@@ -29,7 +30,7 @@ public class ReadCSV {
     }
 
 
-     private static List<String[]> CSVToData(String filename){ //Creating function to read CSV file with data of cars
+     public static List<String[]> CSVToData(String filename){ //Creating function to read CSV file with data of cars
         List<String[]> data = new ArrayList<>();
         
         try(BufferedReader br = new BufferedReader(new FileReader(filename))){ // Close after we read from CSV file. BufferedReader doesn't take in file name, so we pass FileReader which does take file name.
@@ -48,5 +49,19 @@ public class ReadCSV {
         }
 
         return data;
+    }
+
+
+    public static void writeToCSVFile(String fileName, List<String[]> rows, Boolean append) {
+       
+        try (FileWriter writer = new FileWriter(fileName, append)){
+
+            for(String[] row : rows){
+
+                writer.write(String.join(",", row )+ "\n");
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

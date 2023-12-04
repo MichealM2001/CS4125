@@ -1,5 +1,7 @@
 package States;
 
+import java.util.List;
+
 public class LoggedoutState implements UserState{
 
     @Override
@@ -19,5 +21,42 @@ public class LoggedoutState implements UserState{
 
     @Override
     public void setUsername(String username){
+        
+    }
+
+    @Override
+    public void setEmail(String email) {
+        
+    }
+
+    @Override
+    public String getEmail() {
+        return null;
+    }
+
+    @Override
+    public List<String> getOrders() {
+        
+        return null;
+    }
+
+    @Override
+    public void addOrder(String item) {
+       
+    }
+
+    @Override
+    public void removeOrder(String item) {
+        
+    }
+
+    @Override
+    public void addID(String id) {
+        
+    }
+
+    @Override
+    public String getID() {
+        return null; 
     }
 }
