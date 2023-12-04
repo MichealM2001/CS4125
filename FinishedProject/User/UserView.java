@@ -12,13 +12,14 @@ import States.UserContext;
 
 public class UserView extends JFrame {
 
+    private UserController controller;
     private JPanel leftPanel, rightPanel;
     private JLabel nameLabel, carLabel;
     private JButton editProfile;
 
     public UserView(UserContext user) {
         super("My Account");
-
+        controller = new UserController(this, user);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(1000, 600);
@@ -33,7 +34,7 @@ public class UserView extends JFrame {
         editProfile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                openEditProfileDialog(user);
+                controller.openEditProfileDialog(user);
             }
             
         });
@@ -52,41 +53,7 @@ public class UserView extends JFrame {
         add(rightPanel);
     }
 
-    private void openEditProfileDialog(UserContext user) {
-        // Temporarily hardcoded profileData for testing
-        String csvFilePath = "FinishedProject\\CSVs\\registration.csv";
-        String[] profileData = getUserProfileDataFromCSV(user.getUsername().toString(), csvFilePath);
-        
-        EditProfileDialog editProfileDialog = new EditProfileDialog(this, user, profileData);
-        
-        editProfileDialog.setVisible(true);
-    }
     
-
-    public String[] getUserProfileDataFromCSV(String username, String csvFilePath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
-            // Skip the header
-            br.readLine();
-    
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] userData = line.split(",");
-                if (isValidUserData(userData, username)) {
-                    System.out.println("Profile Data: " + Arrays.toString(userData));
-                    return userData;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    
-        System.out.println("User not found: " + username);
-        return null;
-    }
-    
-    private boolean isValidUserData(String[] userData, String username) {
-        return userData.length >= 7 && userData[0].trim().equalsIgnoreCase(username.trim());
-    }
     
 
 }
