@@ -3,8 +3,11 @@ package User;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import DataInputs.ReadCSV;
 import Home.HomeView;
 import Login.LoginGUI;
 import States.UserContext;
@@ -30,6 +33,20 @@ public class UserModel {
         HomeView view = new HomeView(user);
         view.setVisible(true);
         userView.dispose();
+    }
+
+    public String getCar(int carNum){
+        List<String[]> orders = new ArrayList<>();
+        orders = ReadCSV.CSVToData("FinishedProject\\CSVs\\orders.csv");
+
+        if(!orders.isEmpty()){
+            for (String[] strings : orders) {
+                if(strings[0].equals(user.getID().toString())){
+                    return strings[carNum].toString();
+                }
+            }
+        }
+        return "";
     }
 
     public void openEditProfileDialog(UserView view, UserContext user) {

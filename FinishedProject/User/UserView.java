@@ -6,10 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
 
 import States.UserContext;
 
@@ -19,6 +15,7 @@ public class UserView extends JFrame {
     private JPanel leftPanel, rightPanel;
     private JLabel nameLabel, carLabel;
     private JButton editProfile, userButton;
+    private JTextArea cars;
 
     public UserView(UserContext user) {
         super("My Account");
@@ -78,13 +75,28 @@ public class UserView extends JFrame {
         leftPanel = new JPanel();
         leftPanel.add(editProfile);
 
+
+        Font font = new Font("Arial", Font.BOLD, 28);  
+        
+
         rightPanel = new JPanel();
         rightPanel.setSize(500, 600);
         carLabel = new JLabel();
-        carLabel.setText("Tes");
+        carLabel.setOpaque(false);
+        carLabel.setFont(font);
+        carLabel.setText("Rented cars:");
+
         rightPanel.add(carLabel);
 
+        cars = new JTextArea();
+        cars.append(controller.getCar(0).toString() + "\n\n\n");
+        cars.append(controller.getCar(1).toString() + "\n\n\n");
+        cars.append(controller.getCar(2).toString() + "\n\n\n");
+        cars.setOpaque(true);
+        cars.setFont(font);
+        rightPanel.add(cars);
         setLayout(new BorderLayout());
+        
 
         add(leftPanel, BorderLayout.WEST);
         add(rightPanel);

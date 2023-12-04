@@ -3,8 +3,6 @@ package Home;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import Cars.CarManagementGUI;
-import Cars.CarRentalGUI;
 import States.UserContext;
 
 
@@ -15,7 +13,7 @@ public class HomeView extends JFrame{
     private HomeController controller;
     private JButton userButton, carManagementButton, carRentalButton;
     private JPanel leftPanel, rightPanel;
-    private JLabel nameLabel;
+    private JTextArea welcome;
 
 
     public HomeView(UserContext user){
@@ -67,12 +65,22 @@ public class HomeView extends JFrame{
         setLayout(new BorderLayout());
         leftPanel = new JPanel();
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
+        leftPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
+
+        Font font = new Font("Arial", Font.BOLD, 28);  
+        welcome = new JTextArea();
+        welcome.setOpaque(false);
+        welcome.setFont(font);
+        welcome.append("Welcome to Cios!\n\n\n");
+        welcome.append("We pride ourselves on delivering an exceptional \ncar rental experience tailored to your travel needs.\n\n\n");
+        welcome.append("Whether it's a weekend getaway, a business trip, \nor your daily commute, we've got you covered.");
+        leftPanel.add(welcome);
 
 
         rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.PAGE_AXIS));
-        leftPanel.setBorder(new EmptyBorder(10, 10, 10, 500));
+        rightPanel.setBorder(new EmptyBorder(225, 10, 10, 75));
   
         // Initialize the Car Management button
         carManagementButton = new JButton("Manage Cars");
@@ -92,14 +100,10 @@ public class HomeView extends JFrame{
             }
         });
 
-        // rightPanel.add(carManagementButton);
         rightPanel.add(carRentalButton);
         
-        // rightPanel.setSize(500, 600);
-       
-        // rightPanel.add(nameLabel);
-        
         add(rightPanel, BorderLayout.EAST);
+        add(leftPanel, BorderLayout.WEST);
     }
 
     

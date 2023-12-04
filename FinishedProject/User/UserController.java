@@ -30,4 +30,9 @@ public class UserController {
     public void getUserProfileDataFromCSV(String username, String CSVpath){
         userModel.getUserProfileDataFromCSV(username, CSVpath);
     }
+
+
+    public String getCar(int carNum){
+        return userModel.getCar(carNum);
+    }
 }
