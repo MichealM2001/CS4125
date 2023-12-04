@@ -1,3 +1,5 @@
+package Cars;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,10 +7,32 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class CarManagementGUI {
+interface CarObserver {
+    void update();
+}
+
+class CarManager implements CarObserver {
     private static final String fileName = "AddCar.csv";
+    private JTextArea textArea;
+
+    public CarManager(JTextArea textArea) {
+        this.textArea = textArea;
+    }
+
+    @Override
+    public void update() {
+        updateTextArea(textArea);
+    }
+
+    private static void notifyObservers(List<CarObserver> observers) {
+        for (CarObserver observer : observers) {
+            observer.update();
+        }
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -21,6 +45,8 @@ public class CarManagementGUI {
             textArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(textArea);
 
+            CarManager carManager = new CarManager(textArea);
+
             JPanel buttonPanel = new JPanel();
             buttonPanel.setLayout(new GridLayout(1, 3));
 
@@ -29,7 +55,7 @@ public class CarManagementGUI {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     addCar();
-                    updateTextArea(textArea);
+                    notifyObservers(carObservers);
                 }
             });
 
@@ -38,7 +64,7 @@ public class CarManagementGUI {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     removeCar();
-                    updateTextArea(textArea);
+                    notifyObservers(carObservers);
                 }
             });
 
@@ -59,6 +85,12 @@ public class CarManagementGUI {
 
             frame.setVisible(true);
         });
+    }
+
+    private static final List<CarObserver> carObservers = new ArrayList<>();
+
+    public static void addObserver(CarObserver observer) {
+        carObservers.add(observer);
     }
 
     private static void addCar() {
