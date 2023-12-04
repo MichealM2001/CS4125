@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class RegistrationView {
 
@@ -29,8 +30,9 @@ public class RegistrationView {
         }
 
         String gender = promptUser("Enter your gender (male/female): ");
+        String id = UUID.randomUUID().toString();
 
-        return new RegistrationModel(username, password, hasDriverLicense, licenseDuration, penaltyPoints, gender);
+        return new RegistrationModel(username, password, hasDriverLicense, licenseDuration, penaltyPoints, gender, id);
     }
 
     private static String promptUser(String prompt) {

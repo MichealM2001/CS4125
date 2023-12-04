@@ -2,16 +2,20 @@ package Login;
 import javax.swing.*;
 
 import Cars.CarRentalGUI;
+import DataInputs.ReadCSV;
 import Home.HomeView;
+import States.UserContext;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class LoginGUI extends JFrame {
 
     private JTextField usernameField;
     private JPasswordField passwordField;
+    private List<String[]> authFile = new ArrayList<>();
 
     public LoginGUI() {
         super("Car Rental System - Login");
@@ -48,7 +52,11 @@ public class LoginGUI extends JFrame {
                 if (userFound) {
 
                     // Open the home frame
-                    // new HomeView().setVisible();
+                    UserContext user = new UserContext();
+                    ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", null);
+                    HomeView homeView = new HomeView(user);
+                    homeView.setVisible(true);
+
 
                     // Close the login frame
                     dispose();

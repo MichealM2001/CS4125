@@ -14,7 +14,8 @@ public class RegistrationController {
             model.getHasDriverLicense(),
             model.getLicenseDuration(),
             model.getPenaltyPoints(),
-            model.getGender()
+            model.getGender(),
+            model.getID()
         );
 
         RegistrationView.displayMessage("Registration successful!");

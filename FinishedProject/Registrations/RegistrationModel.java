@@ -1,5 +1,6 @@
 package Registrations;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class RegistrationModel {
     private String username;
@@ -8,14 +9,16 @@ public class RegistrationModel {
     private String licenseDuration;
     private int penaltyPoints;
     private String gender;
+    private String id;
 
-    public RegistrationModel(String username, String password, String hasDriverLicense, String licenseDuration, int penaltyPoints, String gender) {
+    public RegistrationModel(String username, String password, String hasDriverLicense, String licenseDuration, int penaltyPoints, String gender, String id) {
         this.username = username;
         this.password = password;
         this.hasDriverLicense = hasDriverLicense;
         this.licenseDuration = licenseDuration;
         this.penaltyPoints = penaltyPoints;
         this.gender = gender;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -40,6 +43,10 @@ public class RegistrationModel {
 
     public String getGender() {
         return gender;
+    }
+
+    public String getID() {
+        return id;
     }
 
     @Override

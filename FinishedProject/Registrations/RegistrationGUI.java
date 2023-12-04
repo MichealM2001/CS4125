@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.UUID;
 
 public class RegistrationGUI extends JFrame {
     private JTextField usernameField;
@@ -89,11 +90,12 @@ public class RegistrationGUI extends JFrame {
         String licenseDuration = fiveYearsRadioButton.isSelected() ? "5+ years" : "no";
         int penaltyPoints = (Integer) penaltyPointsComboBox.getSelectedItem();
         String gender = (String) genderComboBox.getSelectedItem();
+        String id = UUID.randomUUID().toString();
 
         // Perform registration logic
         if (isRegistrationDataValid(username, password, penaltyPoints, hasDriverLicense)) {
             if (isUsernameAvailable(username)) {
-                RegistrationModel registrationModel = new RegistrationModel(username, password, hasDriverLicense, licenseDuration, penaltyPoints, gender);
+                RegistrationModel registrationModel = new RegistrationModel(username, password, hasDriverLicense, licenseDuration, penaltyPoints, gender, id);
                 saveUserDataToFile(registrationModel);
                 JOptionPane.showMessageDialog(this, "Registration successful!");
             } else {
