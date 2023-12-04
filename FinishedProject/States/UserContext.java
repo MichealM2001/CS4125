@@ -14,12 +14,16 @@ public class UserContext {
     }
 
     public void logOut(){
+        authFile.clear();
         authFile.add(new String[]{"false"});
         ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile, false);
         state.logOut(this);
     }
 
     public void logIn(){
+        authFile.clear();
+        authFile.add(new String[]{"true"});
+        ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile, false);
         state.logIn(this);
     }
 

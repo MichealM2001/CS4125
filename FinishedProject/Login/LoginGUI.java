@@ -3,6 +3,7 @@ import javax.swing.*;
 
 import DataInputs.ReadCSV;
 import Home.HomeView;
+import States.LoggedinState;
 import States.UserContext;
 
 import java.awt.*;
@@ -53,6 +54,7 @@ public class LoginGUI extends JFrame {
 
                     // Open the home frame
                     UserContext user = new UserContext();
+                    user.setUsername(username);
                     HomeView homeView = new HomeView(user);
                     homeView.setVisible(true);
 

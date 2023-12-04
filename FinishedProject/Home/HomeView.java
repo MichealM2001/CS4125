@@ -14,7 +14,7 @@ public class HomeView extends JFrame{
     public HomeView(UserContext user){
         super("Car Rental System - Home Screen");
         controller = new HomeController(this, user);
-        
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(1000, 600);
@@ -75,6 +75,12 @@ public class HomeView extends JFrame{
             
         // });
         // topBar.add(userMenu);
+
+        
+
+
+
+
         setJMenuBar(topBar);
     }
 }
