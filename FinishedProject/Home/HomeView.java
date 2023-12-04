@@ -2,7 +2,10 @@ package Home;
 
 import javax.swing.*;
 
+import Cars.CarManagementGUI;
+import Cars.CarRentalGUI;
 import States.UserContext;
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -12,6 +15,8 @@ public class HomeView extends JFrame{
     private JButton userButton;
     private JPanel leftPanel;
     private JLabel nameLabel;
+    private JButton carManagementButton;
+    private JButton carRentalButton;
 
 
     public HomeView(UserContext user){
@@ -36,6 +41,7 @@ public class HomeView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.goToUser(user);
+                System.out.println("--------------");
              }
             
         });
@@ -54,7 +60,27 @@ public class HomeView extends JFrame{
             
         });
         topBar.add(userButton);
+        
+        // Initialize the Car Management button
+        carManagementButton = new JButton("Manage Cars");
+        carManagementButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openCarManagementGUI();
+            }
+        });
 
+         // Initialize the Car Rental button
+        carRentalButton = new JButton("Rent a Car");
+        carRentalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openCarRentalGUI();
+            }
+        });
+
+         this.add(carManagementButton);
+         this.add(carRentalButton);
         // JMenu userMenu = new JMenu("User");
         // userMenu.addMenuListener(new MenuListener() {
 
@@ -92,4 +118,14 @@ public class HomeView extends JFrame{
         
         
     }
+
+    private void openCarManagementGUI() {
+         CarManagementGUI carManagement = new CarManagementGUI();
+         carManagement.setVisible(true);
+        }
+
+        private void openCarRentalGUI() {
+        CarRentalGUI carRental = new CarRentalGUI();
+        carRental.setVisible(true);
+        }
 }
