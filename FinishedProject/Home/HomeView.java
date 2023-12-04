@@ -36,7 +36,6 @@ public class HomeView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.goToUser(user);
-                System.out.println("--------------");
              }
             
         });

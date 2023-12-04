@@ -2,6 +2,8 @@ package Registrations;
 import javax.swing.*;
 
 import DataInputs.ReadCSV;
+import Home.HomeView;
+import States.UserContext;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -96,14 +98,22 @@ public class RegistrationGUI extends JFrame {
         String licenseDuration = fiveYearsRadioButton.isSelected() ? "5+ years" : "no";
         int penaltyPoints = (Integer) penaltyPointsComboBox.getSelectedItem();
         String gender = (String) genderComboBox.getSelectedItem();
-        String id = UUID.randomUUID().toString();
-
+        String id = UUID.randomUUID().toString().substring(0, 7);
+        
         // Perform registration logic
         if (isRegistrationDataValid(username, password, penaltyPoints, hasDriverLicense)) {
             if (isUsernameAvailable(username)) {
                 RegistrationModel registrationModel = new RegistrationModel(username, password, hasDriverLicense, licenseDuration, penaltyPoints, gender, id);
                 saveUserDataToFile(registrationModel);
-                JOptionPane.showMessageDialog(this, "Registration successful!");
+                
+                UserContext user = new UserContext();
+                user.addID(id);
+                user.logIn();
+                HomeView view = new HomeView(user);
+                
+                view.setVisible(true);
+                
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Username is not available. Please choose another.");
             }
@@ -114,7 +124,7 @@ public class RegistrationGUI extends JFrame {
 
     private boolean isRegistrationDataValid(String username, String password, int penaltyPoints, String hasDriverLicense) {
         
-        return !username.isEmpty() && password.length() >= 8 && penaltyPoints >= 0 && (!hasDriverLicense.isEmpty() || (hasDriverLicense.isEmpty() && noDriverLicenseCheckBox.isSelected()));
+        return (!username.isEmpty() && password.length() >= 8 && penaltyPoints >= 0 && (!hasDriverLicense.equals("no") && !hasDriverLicense.isEmpty()));
     }
 
     private boolean isUsernameAvailable(String username) {

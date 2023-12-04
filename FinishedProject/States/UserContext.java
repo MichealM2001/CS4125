@@ -23,9 +23,10 @@ public class UserContext {
     public void logIn(){
         List<String[]> authData, userData = new ArrayList<>();
         authData = ReadCSV.CSVToData("FinishedProject\\CSVs\\authorised.csv");
-        if(authData.size() == 2){
+        if(authData.get(0)[0].equals("true") && !authData.isEmpty()){
             state.logIn(this);
             String userId = authData.get(0)[1];
+
             userData = ReadCSV.CSVToData("FinishedProject\\CSVs\\registration.csv");
             for (String[] strings : userData) {
                 if(strings[6].equals(userId)){

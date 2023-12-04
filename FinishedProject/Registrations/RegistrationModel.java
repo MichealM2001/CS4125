@@ -51,7 +51,7 @@ public class RegistrationModel {
 
     @Override
     public String toString() {
-        return username + "," + password + "," + hasDriverLicense + "," + licenseDuration + "," + penaltyPoints + "," + gender;
+        return username + "," + password + "," + hasDriverLicense + "," + licenseDuration + "," + penaltyPoints + "," + gender + "," + id;
     }
 
         public static String getUserInput() {

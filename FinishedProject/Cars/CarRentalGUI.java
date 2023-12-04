@@ -16,9 +16,10 @@ public class CarRentalGUI extends JFrame {
     private String username;
 
     public CarRentalGUI(String username) {
-        super("Car Rental - Welcome, " + username);
+        super("Car Rental - Welcome");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(800, 400);
+        setLocation(400, 200);
+        setSize(1000, 600);
 
         this.username = username;
 
