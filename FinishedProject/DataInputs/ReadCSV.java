@@ -52,9 +52,9 @@ public class ReadCSV {
     }
 
 
-    public static void writeToCSVFile(String fileName, List<String[]> rows) {
+    public static void writeToCSVFile(String fileName, List<String[]> rows, Boolean append) {
        
-        try (FileWriter writer = new FileWriter(fileName, false)){
+        try (FileWriter writer = new FileWriter(fileName, append)){
 
             for(String[] row : rows){
 

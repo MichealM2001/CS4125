@@ -8,11 +8,13 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class HomeView extends JFrame{
-    private HomeController controller = new HomeController(this);
+    private HomeController controller;
     private JButton userButton;
 
     public HomeView(UserContext user){
         super("Car Rental System - Home Screen");
+        controller = new HomeController(this, user);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(1000, 600);

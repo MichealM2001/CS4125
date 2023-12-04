@@ -26,7 +26,7 @@ public class LoggedoutState implements UserState{
 
     @Override
     public void setEmail(String email) {
-     
+        
     }
 
     @Override
@@ -48,5 +48,15 @@ public class LoggedoutState implements UserState{
     @Override
     public void removeOrder(String item) {
         
+    }
+
+    @Override
+    public void addID(String id) {
+        
+    }
+
+    @Override
+    public String getID() {
+        return null; 
     }
 }

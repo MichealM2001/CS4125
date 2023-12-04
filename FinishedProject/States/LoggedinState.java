@@ -7,6 +7,7 @@ public class LoggedinState implements UserState{
     private String username;
     private String email;
     private List<String> orders;
+    private String id;
 
     public LoggedinState(){
         orders = new ArrayList<>();
@@ -56,6 +57,16 @@ public class LoggedinState implements UserState{
     @Override
     public void removeOrder(String item) {
         orders.remove(item);
+    }
+
+    @Override
+    public void addID(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getID() {
+        return id;
     }
 
 

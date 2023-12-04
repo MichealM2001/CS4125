@@ -12,4 +12,6 @@ public interface UserState{
     List<String> getOrders();
     void addOrder(String item);
     void removeOrder(String item);
+    void addID(String id);
+    String getID();
 }

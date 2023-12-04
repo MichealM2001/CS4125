@@ -15,7 +15,7 @@ public class UserContext {
 
     public void logOut(){
         authFile.add(new String[]{"false"});
-        ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile);
+        ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile, false);
         state.logOut(this);
     }
 
@@ -49,5 +49,13 @@ public class UserContext {
 
     public void addOrder(String item){
         state.addOrder(item);
+    }
+
+    public void addID(String id){
+        state.addID(id);
+    }
+
+    public String getID(){
+        return state.getID();
     }
 }
