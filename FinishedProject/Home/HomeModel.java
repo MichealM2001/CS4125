@@ -2,6 +2,8 @@ package Home;
 
 
 
+import Cars.CarManagementGUI;
+import Cars.CarRentalGUI;
 import Login.LoginGUI;
 import States.UserContext;
 import User.UserView;
@@ -28,6 +30,14 @@ public class HomeModel {
         user.logIn();
     }
 
-    
+    public void openCarManagementGUI() {
+        CarManagementGUI carManagement = new CarManagementGUI();
+        carManagement.setVisible(true);
+    }
+
+    public void openCarRentalGUI() {
+        CarRentalGUI carRental = new CarRentalGUI();
+        carRental.setVisible(true);
+    }
     
 }

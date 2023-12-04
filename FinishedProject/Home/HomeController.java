@@ -23,6 +23,13 @@ public class HomeController {
         homeModel.addUserContext(user);
     }
 
+    public void openCarManagementGUI(){
+        homeModel.openCarManagementGUI();
+    }
+
+    public void openCarRentalGUI(){
+        homeModel.openCarRentalGUI();
+    }
     
 
 }

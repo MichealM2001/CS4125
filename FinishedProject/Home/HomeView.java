@@ -1,6 +1,7 @@
 package Home;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import Cars.CarManagementGUI;
 import Cars.CarRentalGUI;
@@ -12,11 +13,9 @@ import java.awt.event.*;
 
 public class HomeView extends JFrame{
     private HomeController controller;
-    private JButton userButton;
-    private JPanel leftPanel;
+    private JButton userButton, carManagementButton, carRentalButton;
+    private JPanel leftPanel, rightPanel;
     private JLabel nameLabel;
-    private JButton carManagementButton;
-    private JButton carRentalButton;
 
 
     public HomeView(UserContext user){
@@ -60,13 +59,27 @@ public class HomeView extends JFrame{
             
         });
         topBar.add(userButton);
+      
+
         
+        setJMenuBar(topBar);
+
+        setLayout(new BorderLayout());
+        leftPanel = new JPanel();
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
+
+
+
+        rightPanel = new JPanel();
+        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.PAGE_AXIS));
+        leftPanel.setBorder(new EmptyBorder(10, 10, 10, 500));
+  
         // Initialize the Car Management button
         carManagementButton = new JButton("Manage Cars");
         carManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                openCarManagementGUI();
+                controller.openCarManagementGUI();
             }
         });
 
@@ -75,57 +88,19 @@ public class HomeView extends JFrame{
         carRentalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                openCarRentalGUI();
+                controller.openCarRentalGUI();
             }
         });
 
-         this.add(carManagementButton);
-         this.add(carRentalButton);
-        // JMenu userMenu = new JMenu("User");
-        // userMenu.addMenuListener(new MenuListener() {
-
-        //     @Override
-        //     public void menuSelected(MenuEvent e) {
-        //         controller.goToUser();
-        //     }
-
-        //     @Override
-        //     public void menuDeselected(MenuEvent e) {
-        //         // // TODO Auto-generated method stub
-        //         // throw new UnsupportedOperationException("Unimplemented method 'menuDeselected'");
-        //     }
-
-        //     @Override
-        //     public void menuCanceled(MenuEvent e) {
-        //         // // TODO Auto-generated method stub
-        //         // throw new UnsupportedOperationException("Unimplemented method 'menuCanceled'");
-        //     }
-            
-        // });
-        // topBar.add(userMenu);
-
-        setJMenuBar(topBar);
-
-        leftPanel = new JPanel();
-        leftPanel.setSize(500, 600);
-        nameLabel = new JLabel();
-        nameLabel.add(Box.createRigidArea(new Dimension(0,500)));
-        nameLabel.setText("Welcome");
-        leftPanel.add(nameLabel);
+        // rightPanel.add(carManagementButton);
+        rightPanel.add(carRentalButton);
         
-        leftPanel.add(nameLabel);
-        add(leftPanel);
+        // rightPanel.setSize(500, 600);
+       
+        // rightPanel.add(nameLabel);
         
-        
+        add(rightPanel, BorderLayout.EAST);
     }
 
-    private void openCarManagementGUI() {
-         CarManagementGUI carManagement = new CarManagementGUI();
-         carManagement.setVisible(true);
-        }
-
-        private void openCarRentalGUI() {
-        CarRentalGUI carRental = new CarRentalGUI();
-        carRental.setVisible(true);
-        }
+    
 }

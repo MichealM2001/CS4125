@@ -41,6 +41,7 @@ public class CarRentalGUI extends JFrame {
         add(rentButton, BorderLayout.SOUTH);
 
         // Event handling for renting button
+        carRentalButton = new JButton();
         carRentalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
