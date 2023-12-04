@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 
+import Login.LoginGUI;
 import States.UserContext;
 
 public class UserModel {
@@ -18,6 +19,11 @@ public class UserModel {
         return user.getUsername();
     }
 
+    public void logOut(UserView view){
+        user.logOut();
+        new LoginGUI().setVisible(true);
+        view.dispose();
+    }
 
     public void openEditProfileDialog(UserView view, UserContext user) {
         // Temporarily hardcoded profileData for testing

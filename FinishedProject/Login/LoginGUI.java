@@ -25,6 +25,7 @@ public class LoginGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(400, 200);
+        setResizable(false);
 
         // Components
         usernameField = new JTextField();

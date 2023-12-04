@@ -27,6 +27,7 @@ public class RegistrationGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(550, 300);
+        setResizable(false);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(10, 2));

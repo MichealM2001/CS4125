@@ -15,7 +15,8 @@ public class UserView extends JFrame {
     private UserController controller;
     private JPanel leftPanel, rightPanel;
     private JLabel nameLabel, carLabel;
-    private JButton editProfile;
+    private JButton editProfile, userButton;
+
 
     public UserView(UserContext user) {
         super("My Account");
@@ -23,34 +24,41 @@ public class UserView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(1000, 600);
+        setResizable(false);
 
-        leftPanel = new JPanel();
-        leftPanel.setSize(500, 600);
-        nameLabel = new JLabel();
-        nameLabel.setText("Welcome " + user.getUsername().toString());
-        leftPanel.add(nameLabel);
+        JMenuBar topBar = new JMenuBar();
+        topBar.setOpaque(true);
+        topBar.setBackground(new Color(200,200,200));
+        topBar.setPreferredSize(new Dimension(200,50));
+        
+        
+        topBar.add(Box.createRigidArea(new Dimension(17,0)));
+        userButton = new JButton("My Account");
+        userButton.addActionListener(new ActionListener() {
 
-        editProfile = new JButton("Edit Profile");
-        editProfile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.openEditProfileDialog(user);
-            }
+             }
             
         });
 
-        leftPanel.add(editProfile);
+        topBar.add(userButton);
 
-        rightPanel = new JPanel();
-        rightPanel.setSize(500, 600);
-        carLabel = new JLabel();
-        carLabel.setText("Tes");
-        rightPanel.add(carLabel);
-
-        setLayout(new BorderLayout());
+        topBar.add(Box.createRigidArea(new Dimension(750,0)));
         
-        add(leftPanel, BorderLayout.WEST);
-        add(rightPanel);
+        userButton = new JButton("Sign out");
+        userButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.logOut();
+            }
+            
+        });
+        topBar.add(userButton);
+        add(topBar);
+
+
     }
 
     

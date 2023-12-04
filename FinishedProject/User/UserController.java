@@ -15,6 +15,10 @@ public class UserController {
         return userModel.getName();
     }
 
+    public void logOut(){
+        userModel.logOut(view);
+    }
+
     public void openEditProfileDialog(UserContext user) {
         userModel.openEditProfileDialog(view, user);
     }

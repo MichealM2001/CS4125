@@ -16,6 +16,7 @@ public class CarManagementGUI extends JFrame {
             JFrame frame = new JFrame("Car Management System");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(400, 300);
+            frame.setResizable(false);
             frame.setLayout(new BorderLayout());
 
             JTextArea textArea = new JTextArea();
