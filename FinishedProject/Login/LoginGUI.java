@@ -3,6 +3,7 @@ import javax.swing.*;
 
 import DataInputs.ReadCSV;
 import Home.HomeView;
+import Registrations.RegistrationGUI;
 import States.LoggedinState;
 import States.UserContext;
 
@@ -16,6 +17,7 @@ public class LoginGUI extends JFrame {
 
     private JTextField usernameField;
     private JPasswordField passwordField;
+    private JButton registerButton;
 
     public LoginGUI() {
         
@@ -28,7 +30,7 @@ public class LoginGUI extends JFrame {
         usernameField = new JTextField();
         passwordField = new JPasswordField();  
         JButton loginButton = new JButton("Login");
-
+        registerButton = new JButton("Create Account");
         // Layout
         setLayout(new GridLayout(3, 2));
 
@@ -36,7 +38,7 @@ public class LoginGUI extends JFrame {
         add(usernameField);
         add(new JLabel("Password:"));
         add(passwordField);
-        add(new JLabel()); // Empty cell
+        add(registerButton); 
         add(loginButton);
 
         // Event handling
@@ -66,6 +68,19 @@ public class LoginGUI extends JFrame {
                 }
             }
         });
+
+        registerButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistrationGUI regView = new RegistrationGUI();
+                regView.setVisible(true);
+                dispose();
+            }
+            
+        });
+
+
     }
 
     public static void main(String[] args) {

@@ -22,11 +22,16 @@ public class UserContext {
 
     public void logIn(Boolean loggedOut){
         if(loggedOut){
-            authFile.clear();
-            authFile.add(new String[]{"true"});
-            ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile, false);
             state.logIn(this);
-        }       
+            System.out.println(state);
+        }
+        else{
+            // ReadCSV.
+        } 
+        
+        authFile.clear();
+        authFile.add(new String[]{"true"});
+        ReadCSV.writeToCSVFile("FinishedProject\\CSVs\\authorised.csv", authFile, false);      
     }
     public void setState(UserState state){
         this.state = state;
