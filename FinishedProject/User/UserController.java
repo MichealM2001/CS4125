@@ -19,6 +19,10 @@ public class UserController {
         userModel.logOut(view);
     }
 
+    public void goToHome(){
+        userModel.goToHome(view);
+    }
+
     public void openEditProfileDialog(UserContext user) {
         userModel.openEditProfileDialog(view, user);
     }

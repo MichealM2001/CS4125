@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 
+import Home.HomeView;
 import Login.LoginGUI;
 import States.UserContext;
 
@@ -23,6 +24,12 @@ public class UserModel {
         user.logOut();
         new LoginGUI().setVisible(true);
         view.dispose();
+    }
+
+    public void goToHome(UserView userView){
+        HomeView view = new HomeView(user);
+        view.setVisible(true);
+        userView.dispose();
     }
 
     public void openEditProfileDialog(UserView view, UserContext user) {

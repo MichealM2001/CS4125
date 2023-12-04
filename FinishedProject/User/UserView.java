@@ -1,3 +1,6 @@
+
+
+
 package User;
 import javax.swing.*;
 import java.awt.*;
@@ -17,14 +20,12 @@ public class UserView extends JFrame {
     private JLabel nameLabel, carLabel;
     private JButton editProfile, userButton;
 
-
     public UserView(UserContext user) {
         super("My Account");
         controller = new UserController(this, user);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(400, 200);
         setSize(1000, 600);
-        setResizable(false);
 
         JMenuBar topBar = new JMenuBar();
         topBar.setOpaque(true);
@@ -33,18 +34,19 @@ public class UserView extends JFrame {
         
         
         topBar.add(Box.createRigidArea(new Dimension(17,0)));
-        userButton = new JButton("My Account");
+        userButton = new JButton("Back");
         userButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-             }
+                controller.goToHome();
+            }
             
         });
 
         topBar.add(userButton);
 
-        topBar.add(Box.createRigidArea(new Dimension(750,0)));
+        topBar.add(Box.createRigidArea(new Dimension(780,0)));
         
         userButton = new JButton("Sign out");
         userButton.addActionListener(new ActionListener() {
@@ -56,12 +58,39 @@ public class UserView extends JFrame {
             
         });
         topBar.add(userButton);
-        add(topBar);
+        setJMenuBar(topBar);
 
+        nameLabel = new JLabel();
+        nameLabel.add(Box.createRigidArea(new Dimension(0,500)));
+        nameLabel.setText("");
+        add(nameLabel);
+    
 
+        editProfile = new JButton("Edit Profile");
+        editProfile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.openEditProfileDialog(user);
+            }
+
+        });
+
+        leftPanel = new JPanel();
+        leftPanel.add(editProfile);
+
+        rightPanel = new JPanel();
+        rightPanel.setSize(500, 600);
+        carLabel = new JLabel();
+        carLabel.setText("Tes");
+        rightPanel.add(carLabel);
+
+        setLayout(new BorderLayout());
+
+        add(leftPanel, BorderLayout.WEST);
+        add(rightPanel);
     }
 
-    
-    
+   
+
 
 }

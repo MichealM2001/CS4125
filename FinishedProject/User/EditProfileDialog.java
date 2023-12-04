@@ -42,7 +42,7 @@ public class EditProfileDialog extends JDialog {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateCSVFile(user.getUsername());
+                updateCSVFile(user.getID());
                 dispose(); // Close the dialog
             }
         });
@@ -77,7 +77,7 @@ public class EditProfileDialog extends JDialog {
         }
     }
 
-    private void updateCSVFile(String username) {
+    private void updateCSVFile(String id) {
         // Read all lines from the CSV file
         List<String> lines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("FinishedProject\\CSVs\\registration.csv"))) {
@@ -93,7 +93,7 @@ public class EditProfileDialog extends JDialog {
         // Find the line with the specified username
         for (int i = 1; i < lines.size(); i++) { // Start from index 1 to skip the header
             String[] userData = lines.get(i).split(",");
-            if (userData.length >= 7 && userData[0].equalsIgnoreCase(username)) {
+            if (userData.length >= 7 && userData[6].equalsIgnoreCase(id)) {
                 // Update the values in the CSV file
                 userData[0] = usernameField.getText();
                 userData[2] = hasLicenseCheckBox.isSelected() ? "yes" : "no";
