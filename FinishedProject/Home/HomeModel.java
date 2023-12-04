@@ -1,15 +1,12 @@
 package Home;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import Login.LoginGUI;
 import States.UserContext;
 import User.UserView;
 
 public class HomeModel {
-    
-    private List<String[]> authFile = new ArrayList<>();
 
     public String getUsername(UserContext user){
         return user.getUsername();
@@ -28,8 +25,9 @@ public class HomeModel {
     }
 
     public void addUserContext(UserContext user){
-        
+        user.logIn(false);
     }
 
+    
     
 }

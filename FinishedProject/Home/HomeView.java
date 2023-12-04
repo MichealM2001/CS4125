@@ -10,6 +10,9 @@ import java.awt.event.*;
 public class HomeView extends JFrame{
     private HomeController controller;
     private JButton userButton;
+    private JPanel leftPanel;
+    private JTextArea textArea;
+
 
     public HomeView(UserContext user){
         super("Car Rental System - Home Screen");
@@ -76,11 +79,14 @@ public class HomeView extends JFrame{
         // });
         // topBar.add(userMenu);
 
-        
-
-
-
-
         setJMenuBar(topBar);
+
+        leftPanel = new JPanel();
+        textArea = new JTextArea(5, 20);
+        textArea.append(user.getUsername());
+        textArea.setEditable(false);
+        leftPanel.add(textArea);
+
+        
     }
 }
